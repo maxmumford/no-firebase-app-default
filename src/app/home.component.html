@@ -1,0 +1,18 @@
+<div>
+  <h2>Auth</h2>
+  <div *ngIf="user">
+    <p>Logged in as: {{user?.auth?.displayName}}</p>
+    <button type="button" (click)="randomiseDisplayName()">Set random display name</button>
+    <button (click)="logout()">logout</button>
+  </div>
+  <div *ngIf="!user">
+    <input #email placeholder="email">
+    <input #password placeholder="password">
+    <button (click)="createUser(email.value, password.value)">Create user</button>
+    <button (click)="login(email.value, password.value)">Login</button>
+  </div>
+  <hr>
+  <pre>
+    {{ user|json }}
+  </pre>
+</div>
